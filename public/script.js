@@ -5,7 +5,6 @@ const allMessage = document.getElementById('allMessages')
 const form = document.getElementById('send-container')
 const centertext = document.querySelector('.center')
 
-
 const appendchild = (message, position) => {
     const messageElement = document.createElement('div')
     messageElement.innerHTML = message;
