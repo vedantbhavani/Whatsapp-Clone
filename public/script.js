@@ -3,7 +3,7 @@ const messageInput = document.getElementById('messageInp')
 const sendBtn = document.getElementById('sendbtn')
 const allMessage = document.getElementById('allMessages')
 const form = document.getElementById('send-container')
-const centertext = document.querySelector('.center')
+const centertext = document.querySelector('.firsttitle')
 
 const appendchild = (message, position) => {
     const messageElement = document.createElement('div')
@@ -13,11 +13,11 @@ const appendchild = (message, position) => {
     allMessage.append(messageElement)
 }
 // First user joined
+
 const names = prompt("Enter Your name to Join");
 socket.emit('new-user-join', names);
 
-centertext.innerHTML = `Welcome to the Chat App <b class="firstname">${names}</b>`
-
+centertext.innerHTML = `Welcome to the Chat App <b class="firsttitlename">${names}</b>`
 // New user Joined
 socket.on('user-joined', (names) => {
     appendchild(`<b class="firstname">${names}</b> Joined the chat`, 'center')

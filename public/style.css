@@ -31,6 +31,19 @@ body {
   width: max-content;
   max-width: 90%;
 }
+.firsttitlename{
+    color: #0b5ed7;
+    text-transform: capitalize;
+    font-size: larger;
+}
+.firsttitle {
+  background-color: #ffca2c;
+  color: black;
+  clear: both;
+  margin: 0.2vh auto 0 auto;
+  width: max-content;
+  max-width: 90%;
+}
 .right {
   float: right;
   clear: both;
