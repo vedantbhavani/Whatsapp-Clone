@@ -26,7 +26,7 @@ socket.on('user-joined', (names) => {
 
 // User receive a message
 socket.on('receive', data => {
-    appendchild(`${data.name}: ${data.message}`, 'left')
+    appendchild(`<b class="firstname">${data.name}:</b> ${data.message}`, 'left')
 })
 
 // User left the chat
@@ -38,7 +38,7 @@ socket.on('leave', name => {
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const message = messageInput.value;
-    appendchild(`You : ${message}`, 'right')
+    appendchild(`<b class="firstname">You:</b> ${message}`, 'right')
     socket.emit('send', message)
     messageInput.value = "";
 })
