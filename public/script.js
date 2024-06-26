@@ -5,8 +5,6 @@ const allMessage = document.getElementById('allMessages')
 const form = document.getElementById('send-container')
 const centertext = document.querySelector('.center')
 
-// Harry sir
-// New user generated
 
 const appendchild = (message, position) => {
     const messageElement = document.createElement('div')
@@ -15,27 +13,29 @@ const appendchild = (message, position) => {
     messageElement.classList.add(position)
     allMessage.append(messageElement)
 }
-
-const names = prompt("Enter Your name to Join");
-socket.emit('new-user-join', names);
-socket.emit('diconnect')
-
 centertext.innerHTML = `Welcome to the Chat App <b class="firstname">${names}</b>`
 
+// First user joined
+const names = prompt("Enter Your name to Join");
+socket.emit('new-user-join', names);
+
+// New user Joined
 socket.on('user-joined', (names) => {
     appendchild(`<b class="firstname">${names}</b> Joined the chat`, 'center')
     console.log("New user coming", names);
 })
 
+// User receive a message
 socket.on('receive', data => {
     appendchild(`${data.name}: ${data.message}`, 'left')
 })
 
+// User left the chat
 socket.on('leave', name => {
     appendchild(`<b class="firstname">${name}</b> left the chat`, 'leave')
 })
 
-// Message sending
+// User send a message
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const message = messageInput.value;
