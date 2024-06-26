@@ -10,7 +10,7 @@ const centertext = document.querySelector('.center')
 
 const appendchild = (message, position) => {
     const messageElement = document.createElement('div')
-    messageElement.innerText = message;
+    messageElement.innerHTML = message;
     messageElement.classList.add('message')
     messageElement.classList.add(position)
     allMessage.append(messageElement)
@@ -20,10 +20,10 @@ const names = prompt("Enter Your name to Join");
 socket.emit('new-user-join', names);
 socket.emit('diconnect')
 
-centertext.innerHTML = `Welcome to the Chat App ${names}`
+centertext.innerHTML = `Welcome to the Chat App <b class="firstname">${names}</b>`
 
 socket.on('user-joined', (names) => {
-    appendchild(`${names} Joined the chat`, 'center')
+    appendchild(`<b class="firstname">${names}</b> Joined the chat`, 'center')
     console.log("New user coming", names);
 })
 
@@ -32,7 +32,7 @@ socket.on('receive', data => {
 })
 
 socket.on('leave', name => {
-    appendchild(`${name} left the chat`, 'leave')
+    appendchild(`<b class="firstname">${name}</b> left the chat`, 'leave')
 })
 
 // Message sending

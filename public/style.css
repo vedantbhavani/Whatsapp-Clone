@@ -37,6 +37,10 @@ body{
     color: white;
     background-color: #005c4b;
 }
+.firstname{
+    color: yellow;
+    text-transform: capitalize;
+}
 .left{
     float: left;
     color: white;
