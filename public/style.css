@@ -61,7 +61,7 @@ body {
   clear: both;
 }
 .leave {
-  float: left;
+  margin: 1vh auto 0 auto;
   color: white;
   background-color: #bb2d3b;
   clear: both;
