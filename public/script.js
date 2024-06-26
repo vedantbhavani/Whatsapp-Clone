@@ -12,11 +12,11 @@ const appendchild = (message, position) => {
     messageElement.classList.add(position)
     allMessage.append(messageElement)
 }
-centertext.innerHTML = `Welcome to the Chat App <b class="firstname">${names}</b>`
-
 // First user joined
 const names = prompt("Enter Your name to Join");
 socket.emit('new-user-join', names);
+
+centertext.innerHTML = `Welcome to the Chat App <b class="firstname">${names}</b>`
 
 // New user Joined
 socket.on('user-joined', (names) => {
