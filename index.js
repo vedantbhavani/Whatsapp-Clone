@@ -14,15 +14,20 @@ app.get('/' , (req , res) => {
 
 // handle Socket io
 io.on('connection' , (socket) => {
+
+    // New user Joined
     socket.on('new-user-join' , name => {
         users[socket.id] = name;
         socket.broadcast.emit('user-joined' , name) 
         console.log("New user is : ", name);
     })
+
+    // User send and receive message 
     socket.on('send' , message => {
         socket.broadcast.emit('receive' , {message : message , name : users[socket.id]})
     })
-
+    
+    // User Left the chat 
     socket.on('disconnect' , message => {
         socket.broadcast.emit('leave' , users[socket.id])
         console.log('disconnect' , users[socket.id]);
