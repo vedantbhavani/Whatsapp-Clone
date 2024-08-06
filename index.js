@@ -12,6 +12,7 @@ app.get('/', (req, res) => {
     res.sendFile('/public/index.html')
 })
 
+
 // start coding of whatsapp clone
 // handle Socket io
 io.on('connection', (socket) => {
