@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
     res.sendFile('/public/index.html')
 })
 
-// 
+// start coding of whtsapp
 // handle Socket io
 io.on('connection', (socket) => {
     // New user Joined
