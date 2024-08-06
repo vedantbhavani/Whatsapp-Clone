@@ -12,9 +12,9 @@ app.get('/', (req, res) => {
     res.sendFile('/public/index.html')
 })
 
+// 
 // handle Socket io
 io.on('connection', (socket) => {
-
     // New user Joined
     socket.on('new-user-join', name => {
         users[socket.id] = name;

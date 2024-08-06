@@ -42,7 +42,7 @@ body {
   clear: both;
   margin: 0.2vh auto 0 auto;
   width: max-content;
-  max-width: 90%;
+  max-width: 100%;
 }
 .right {
   float: right;

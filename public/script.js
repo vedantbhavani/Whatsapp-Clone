@@ -14,16 +14,15 @@ const appendchild = (message, position) => {
 }
 // First user joined
 
+// New user Joined
 const names = prompt("Enter Your name to Join");
 socket.emit('new-user-join', names);
-
 centertext.innerHTML = `Welcome to the Chat App <b class="firsttitlename">${names}</b>`
-// New user Joined
+
 socket.on('user-joined', (names) => {
     appendchild(`<b class="firstname">${names}</b> Joined the chat`, 'center')
     console.log("New user coming", names);
 })
-
 // User receive a message
 socket.on('receive', data => {
     appendchild(`<b class="firstname">${data.name}:</b> ${data.message}`, 'left')
